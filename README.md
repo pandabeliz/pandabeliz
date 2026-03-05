@@ -140,6 +140,51 @@ I'm a **Master's student in Applied Data Science** at Utrecht University, specia
 
 ## 📂 Featured NLP & ML Projects
 
+### 🐱 [Cat Distress Detection — Audio ML & Welfare AI](https://github.com/pandabeliz/cat_meow_anlayser)
+**Full ML pipeline for detecting distress in cat vocalisations | Fellowship Project**
+
+Built an end-to-end machine learning system classifying cat meow recordings as **distress** (isolation) or **normal** (brushing/food-anticipation), deployed as a live web application. Developed as part of the **Electric Sheep Futurekind Fellowship** — an AI for animal protection programme.
+
+**Technical Deep Dive:**
+- Extracted **81 acoustic features** per recording: MFCCs (52), spectral descriptors (20), spectral entropy (2), temporal features (4), and pitch/F0 statistics (3)
+- Trained and tuned a **LightGBM classifier** with Optuna (100 trials), optimising for **F2 score** — recall weighted 2× over precision, appropriate for welfare monitoring where missed distress is worse than a false alarm
+- Identified a critical methodological failure in naive `train_test_split`: **19/21 cats leaked** between train and val, inflating recall to 88.6% while the per-cat AUC collapsed to 0.476 (worse than random) — the model was learning individual vocal signatures, not distress
+- Corrected with **Leave-One-Cat-Out (LOCO) cross-validation**, producing honest generalisation results: **mean AUC 0.780 ± 0.248** across 16 evaluable cats
+- Deployed via **Gradio on HuggingFace Spaces** as an inference API, with a **React frontend** (Lovable) for the user-facing interface
+
+**Key Results:**
+- 🎯 **Mean LOCO AUC: 0.780** — generalises to cats the model has never heard
+- 🎯 **Decision threshold: 0.135** — tuned for welfare-appropriate recall
+- 🎯 **11/16 evaluable cats** achieve AUC ≥ 0.80
+- 🎯 **Live demo** processing real .wav uploads end-to-end
+
+**Tech Stack:** Python · LightGBM · librosa · Optuna · Gradio · HuggingFace Spaces · React  
+🔗 [GitHub](https://github.com/pandabeliz/cat_meow_anlayser) · [Live Demo](https://kitty-comm-analyzer.lovable.app/analyze) · [Model on HuggingFace](https://huggingface.co/belpekkan/cat_distress_detection)
+
+---
+
+### ♟️ [Chess Transformer Player — Seq2Seq Move Prediction](https://github.com/pandabeliz/UniversityProjects/tree/main/seq2seq_chess_T5)
+**Fine-tuned T5-base transformer competing in a university chess tournament | INFOMTALC, Utrecht University**
+
+Fine-tuned a T5-base encoder-decoder model to play chess by predicting moves from board state representations. Competed in a tournament against **Stockfish** and **Mistral-7B** as part of the INFOMTALC course at Utrecht University.
+
+**Technical Deep Dive:**
+- Framed chess as a **sequence-to-sequence task**: input is a FEN string augmented with all legal moves (`"chess: <FEN> legal: e2e4 d2d4 ..."`), output is the next move in UCI format
+- Legal move augmentation via `python-chess` provides a strong validity signal — **0 illegal move fallbacks** in tournament play after this addition
+- Fine-tuned **T5-base** on Lichess games filtered to Elo ≥ 1500, streamed via HuggingFace Datasets
+- Training workflow: Google Colab GPU → `push_to_hub()` → reload from HuggingFace, eliminating fragile checkpoint management across sessions
+- Evaluated against Stockfish (strong & weak) and Mistral-7B in a multi-player round-robin tournament
+
+**Key Results:**
+- 🎯 **0 illegal move fallbacks** in tournament play
+- 🎯 Validation loss still decreasing at 3 epochs → continued training to 10–15 epochs planned
+- 🎯 Model hosted and versioned on HuggingFace Hub for reproducibility
+
+**Tech Stack:** Python · T5-base · HuggingFace Transformers · PyTorch · python-chess · Google Colab  
+🔗 [GitHub](https://github.com/pandabeliz/UniversityProjects/tree/main/seq2seq_chess_T5) · [Model on HuggingFace](https://huggingface.co/belpekkan/chess_T5_seq2seq)
+
+---
+
 ### 🏆 [Multi-Label Book Genre Classification Using Transformers](https://github.com/pandabeliz/BookGenrePrediction)
 **Advanced NLP system with comprehensive model comparison**
 
@@ -332,4 +377,4 @@ Conducted computational linguistics research investigating bilingual language pr
 
 ---
 
-*Last updated: February 2026*
+*Last updated: March 2026*
