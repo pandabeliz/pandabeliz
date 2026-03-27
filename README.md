@@ -132,7 +132,7 @@ I'm a **Master's student in Applied Data Science** at Utrecht University, specia
 - 🇹🇷 Turkish (Native)
 - 🇬🇧 English (Fluent - C2)
 - 🇳🇱 Dutch (Intermediate - A2)
-- 🇫🇷 French (Intermediate - B1)
+- 🇫🇷 French (Intermediate - B1.5)
 
 *Multilingual background enhances understanding of cross-lingual NLP challenges*
 
@@ -348,8 +348,8 @@ Conducted computational linguistics research investigating bilingual language pr
 ## 💡 Beyond the Code
 
 - 📚 **Lifelong Learner:** Read **68 books** in 2025 - committed to continuous learning across AI, psychology, linguistics, and philosophy
-- 🌍 **Multilingual NLP Enthusiast:** Native Turkish speaker, fluent in English, learning Dutch (B1) and French (B2) - brings unique perspective to cross-lingual NLP challenges
-- 🎨 **Creative Side:** Freelance website designer since 2020 - built **15+ custom websites** across finance, healthcare, and hospitality
+- 🌍 **Multilingual NLP Enthusiast:** Native Turkish speaker, fluent in English, learning Dutch (A2) and French (B1.5) - brings unique perspective to cross-lingual NLP challenges
+- 🎨 **Creative Side:** Freelance website designer since 2020 - built **5+ custom websites** across finance, healthcare, and hospitality
 - 🧠 **Cognitive Science Foundation:** Background in human cognition informs user-centered approach to AI design
 - 🌱 **Passionate About:** Applying NLP to meaningful problems - environmental sustainability, healthcare accessibility, education technology
 
